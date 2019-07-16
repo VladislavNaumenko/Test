@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+
+  <body>
+    <style>
+      body {
+        display: flex;
+        font-size: 20px;
+      }
+      span {
+        font-size: 20px;
+      }
+      input {
+        width: 15px;
+        font-size: 22px;
+        border: 1px solid #888;
+      }
+      input:hover {
+        border: 1px solid #333;
+      }
+    </style>
+    <script>
+      new  Props = {
+      /**
+        * Маска инпута. Значения:
+        * "I" - одиночный инпут для ввода одной цифры
+        * "X" - серый блок с символом "X"
+        * "*" - серый блок с символом "●"
+        * <цифра> - серый блок с введенной цифрой
+        * <не цифра> - символ отображается "как есть"
+        */
+      mask: string
+      };
+      function SplitMask( x ) {
+        return this.mask.split("");
+      }
+      function testJump(x) {
+          var ml = ~~x.getAttribute("maxlength");
+          if (ml && x.value.length >= ml) {
+            do {
+              x = x.nextSibling;
+            } while (x && !/text/.test(x.type));
+            if (x && /text/.test(x.type)) {
+              x.focus();
+            }
+          }
+        }
+      Props.mask = '+7(985)0II-**-**';
+      var mas=[];
+      mas = SplitMask(Props);
+      mas.slice(13,1);
+      mas.slice(10,1);
+      mas.slice(6,1);
+      mas.slice(2,1);
+      mas.slice(0,1);
+      for(i=0;i<=10;i++) {
+      name = 'name'+i;
+      if ((mas[i] >= 1) && (mas[i] <= 9)){
+      document[name].value = mas[i];
+      document[name].background = rgb(209, 206, 206);
+      };
+
+      }
+    </script>
+
+    <div>
+      <form name="my">
+        <input
+          type="text"
+          name="num1"
+          placeholder="_"
+          onkeyup="testJump(this);"
+          required
+          maxlength="1"
+          size="1"
+          pattern="[0-9]{1}"
+        />
+        <input
+          type="text"
+          name="num2"
+          placeholder="_"
+          onkeyup="testJump(this);"
+          required
+          maxlength="1"
+          size="1"
+          pattern="[0-9]{1}"
+        />
+        <input
+          type="text"
+          name="num3"
+          placeholder="_"
+          onkeyup="testJump(this);"
+          required
+          maxlength="1"
+          size="1"
+          pattern="[0-9]{1}"
+        />
+        <input
+          type="text"
+          name="num4"
+          placeholder="_"
+          onkeyup="testJump(this);"
+          required
+          maxlength="1"
+          size="1"
+          pattern="[0-9]{1}"
+        />
+      </form>
+    </div>
+  </body>
+</html>
