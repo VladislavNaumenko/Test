@@ -1,0 +1,48 @@
+ body {
+   display: flex;
+   font-size: 20px;
+   box-sizing: border-box;
+ }
+
+ span {
+   font-size: 22px;
+   margin: 2px;
+ }
+
+ input {
+   width: 15px;
+   font-size: 22px;
+   border-radius: 3px;
+   margin: 3px;
+   padding: 4px;
+ }
+
+ #done {
+   color: red;
+ }
+
+ .wrong {
+   background: #fff;
+   border: 1px solid #ff0000;
+ }
+
+ .vacant {
+   background: #fff;
+   border: 1px solid #e4e4e4;
+ }
+
+ .occupied {
+   background: #f0f0f0;
+   border: 1px solid #f0f0f0;
+   text-align: center;
+ }
+
+ .vacant:hover {
+   border: 1px solid #d1d1d1;
+ }
+
+ .vacant:focus {
+   outline-offset: 0;
+   outline: none;
+   border: 1px solid #a3a3a3;
+ }
